@@ -21,9 +21,7 @@ module.exports = function(robot) {
     return res.send(res.message.text + "? Where are we going with this?");
   });
   enterReplies = ['Hi', 'Target Acquired', 'Hello friend.', 'I see you'];
-  leaveReplies = ['Are you still there?', 'Bye Felicia'
-    'Wait what'
-  ];
+  leaveReplies = ['Are you still there?', 'Bye Felicia', 'Wait what'];
 
   robot.enter(function(res) {
     return res.send(res.random(enterReplies));
