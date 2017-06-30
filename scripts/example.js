@@ -17,6 +17,10 @@ module.exports = function(robot) {
     return res.send("If it don't pay your bills, then pay it no mind");
   });
 
+  robot.hear(/go/i, function(res) {
+    return res.send('Start your engines');
+  });
+
   robot.topic(function(res) {
     return res.send(res.message.text + "? Where are we going with this?");
   });
@@ -34,7 +38,7 @@ module.exports = function(robot) {
   robot.respond(/you are a little slow/, function(res) {
     return setTimeout(function() {
       return res.send("Who you calling 'slow'?");
-    }, 60 * 1000);
+    }, 60 * 100);
   });
   annoyIntervalId = null;
 
