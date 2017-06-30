@@ -4,7 +4,7 @@ module.exports = function(robot) {
     return res.send('mmmmhmmmm');
   });
 
-  lulz = ['lol', 'rofl', 'lmao'];
+  var lulz = ['lol', 'rofl', 'lmao'];
   robot.respond(/lol/i, function(res) {
     return res.send(res.random(lulz));
   });
