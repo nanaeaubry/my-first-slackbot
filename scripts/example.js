@@ -42,15 +42,6 @@ module.exports = function(robot) {
   });
 
   canIId = null;
-  robot.respond(/I can't/, function(res) {
-    if (canIId) {
-      res.send("You aren't listening to me!!!");
-      return;
-    }
-    return canIId = setInterval(function() {
-      return res.send("YES YOU CAN!!");
-    }, 500);
-  });
 
   robot.respond(/I can/, function(res) {
     if (canIId) {
@@ -61,5 +52,16 @@ module.exports = function(robot) {
       return res.send("Yeah no duh!");
     }
   });
+
+  robot.respond(/I can't/, function(res) {
+    if (canIId) {
+      res.send("You aren't listening to me!!!");
+      return;
+    }
+    return canIId = setInterval(function() {
+      return res.send("YES YOU CAN!!");
+    }, 500);
+  });
+
 
 }
