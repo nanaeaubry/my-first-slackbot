@@ -61,32 +61,6 @@ module.exports = function(robot) {
       return res.send("Yeah no duh!");
     }
   });
-  robot.router.post('/hubot/chatsecrets/:room', function(req, res) {
-    var data, room, secret;
-    room = req.params.room;
-    data = JSON.parse(req.body.payload);
-    secret = data.secret;
-    robot.messageRoom(room, "I have a secret: " + secret);
-    return res.send('OK');
-  });
-
-  robot.error(function(err, res) {
-    robot.logger.error("DOES NOT COMPUTE");
-    if (res != null) {
-      return res.reply("DOES NOT COMPUTE");
-    }
-  });
-
-  robot.respond(/have a soda/i, function(res) {
-    var sodasHad;
-    sodasHad = robot.brain.get('totalSodas') * 1 || 0;
-    if (sodasHad > 4) {
-      return res.reply("I'm too fizzy..");
-    } else {
-      res.reply('Sure!');
-      return robot.brain.set('totalSodas', sodasHad + 1);
-    }
-  });
 
   var target = robot.getUser("jason", stringWithUsername);
   var response = target.mention + ", that's sassy.";
