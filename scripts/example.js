@@ -67,3 +67,5 @@ module.exports = function(robot) {
   robot.sendMessage(message.channel, response);
 
 };
+
+}
