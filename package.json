@@ -1,9 +1,9 @@
 {
-  "name": "Rubot",
+  "name": "rubot",
   "version": "0.0.0",
   "private": true,
   "author": "nanaeaubry <nanaeaubry@gmail.com>",
-  "description": "A fun and happy bot that has common catchphrases.",
+  "description": "A simple helpful robot for your Company",
   "dependencies": {
     "hubot": "^2.19.0",
     "hubot-diagnostics": "0.0.2",
