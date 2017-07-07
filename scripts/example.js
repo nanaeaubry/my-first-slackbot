@@ -55,12 +55,13 @@ module.exports = function(robot) {
 
   robot.respond(/I can't/, function(res) {
     if (canIId) {
-      res.send("You aren't listening to me!!!");
+      res.send("YES YOU CAN!!");
       return;
     }
+    res.send("You aren't listening to me!!!");
     return canIId = setInterval(function() {
       return res.send("YES YOU CAN!!");
-    }, 500);
+    }, 1000);
   });
 
 
