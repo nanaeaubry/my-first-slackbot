@@ -38,31 +38,29 @@ module.exports = function(robot) {
   robot.respond(/you are a little slow/, function(res) {
     return setTimeout(function() {
       return res.send("Who you calling 'slow'?");
-    }, 60 * 100);
+    }, 6 * 1000);
   });
-  annoyIntervalId = null;
 
-  robot.respond(/annoy me/, function(res) {
-    if (annoyIntervalId) {
-      res.send("AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH");
+  canIId = null;
+  robot.respond(/I can't/, function(res) {
+    if (canIId) {
+      res.send("You aren't listening to me!!!");
       return;
     }
-    res.send("Hey, want to hear the most annoying sound in the world?");
-    return annoyIntervalId = setInterval(function() {
-      return res.send("AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH");
-    }, 1000);
+    return canIId = setInterval(function() {
+      return res.send("YES YOU CAN!!");
+    }, 500);
   });
 
-  robot.respond(/unannoy me/, function(res) {
-    if (annoyIntervalId) {
-      res.send("GUYS, GUYS, GUYS!");
-      clearInterval(annoyIntervalId);
-      return annoyIntervalId = null;
+  robot.respond(/I can/, function(res) {
+    if (canIId) {
+      res.send("Yay! You can do it girl!");
+      clearInterval(canIId);
+      return canIId = null;
     } else {
-      return res.send("Not annoying you right now, am I?");
+      return res.send("Yeah no duh!");
     }
   });
-
   robot.router.post('/hubot/chatsecrets/:room', function(req, res) {
     var data, room, secret;
     room = req.params.room;
@@ -90,18 +88,8 @@ module.exports = function(robot) {
     }
   });
 
-  //   robot.respond(/open the (.*) doors/i, function(res) {
-  //     var doorType;
-  //     doorType = res.match[1];
-  //     if (doorType === "pod bay") {
-  //       return res.reply("I'm afraid I can't let you do that.");
-  //     } else {
-  //       return res.reply("Opening " + doorType + " doors");
-  //     }
-  //   });
+  var target = robot.getUser("jason", stringWithUsername);
+  var response = target.mention + ", that's sassy.";
+  robot.sendMessage(message.channel, response);
 
-  //   return robot.respond(/sleep it off/i, function(res) {
-  //     robot.brain.set('totalSodas', 0);
-  //     return res.reply('zzzzz');
-  //   });
 };
