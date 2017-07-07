@@ -62,10 +62,4 @@ module.exports = function(robot) {
     }
   });
 
-  var target = robot.getUser("jason", stringWithUsername);
-  var response = target.mention + ", that's sassy.";
-  robot.sendMessage(message.channel, response);
-
-};
-
 }
