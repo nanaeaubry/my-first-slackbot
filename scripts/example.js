@@ -64,27 +64,4 @@ module.exports = function(robot) {
     }
   });
 
-  annoyIntervalId = null;
-
-  robot.respond(/annoy me/, function(res) {
-    if (annoyIntervalId) {
-      res.send("AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH");
-      return;
-    }
-    res.send("Hey, want to hear the most annoying sound in the world?");
-    return annoyIntervalId = setInterval(function() {
-      return res.send("AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH");
-    }, 1000);
-  });
-
-  robot.respond(/unannoy me/, function(res) {
-    if (annoyIntervalId) {
-      res.send("GUYS, GUYS, GUYS!");
-      clearInterval(annoyIntervalId);
-      return annoyIntervalId = null;
-    } else {
-      return res.send("Not annoying you right now, am I?");
-    }
-  });
-
 };
