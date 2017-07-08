@@ -55,7 +55,7 @@ module.exports = function(robot) {
     canIntervalId = 1;
   });
 
-  robot.respond(/I can/, function(res) {
+  robot.respond(/I will/, function(res) {
     if (canIntervalId !== null) {
       res.send("Yay! Course you can!");
       clearInterval(canIntervalId);
