@@ -1,7 +1,7 @@
 module.exports = function(robot) {
 
   robot.hear(/alright/, function(res) {
-    return res.send('mmmmhmmmm');
+    return res.send('mmhmmmm');
   });
 
   var lulz = ['lol', 'rofl', 'lmao'];
@@ -10,7 +10,7 @@ module.exports = function(robot) {
   });
 
   robot.hear(/Hello/i, function(res) {
-    return res.send('Hey girl Hey!');
+    return res.send('Hey grl Hey!');
   });
 
   robot.hear(/sad/i, function(res) {
@@ -41,28 +41,26 @@ module.exports = function(robot) {
     }, 6 * 1000);
   });
 
-  canIId = null;
-
-  robot.respond(/I can/, function(res) {
-    if (canIId) {
-      res.send("Yay! You can do it girl!");
-      clearInterval(canIId);
-      return canIId = null;
-    } else {
-      return res.send("Yeah no duh!");
-    }
-  });
+  canId = null;
 
   robot.respond(/I can't/, function(res) {
-    if (canIId) {
-      res.send("YES YOU CAN!!");
+    if (canId) {
+      res.send("Believe in yourself!");
       return;
     }
-    res.send("You aren't listening to me!!!");
-    return canIId = setInterval(function() {
-      return res.send("YES YOU CAN!!");
+    res.send("You don't really think that?");
+    return canId = setInterval(function() {
+      return res.send("Believe in yourself");
     }, 1000);
   });
 
-
-}
+  robot.respond(/I can/, function(res) {
+    if (canId) {
+      res.send("Yay! Course you can!");
+      clearInterval(canId);
+      return canId = null;
+    } else {
+      return res.send("Isn't that what I told you??");
+    }
+  });
+};
