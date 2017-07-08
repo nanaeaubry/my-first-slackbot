@@ -44,7 +44,7 @@ module.exports = function(robot) {
   canIntervalId = null;
 
   robot.respond(/I cant/, function(res) {
-    if (canIntervalId) {
+    if (canIntervalId !== null) {
       res.send("Believe in yourself!");
       return;
     }
@@ -55,7 +55,7 @@ module.exports = function(robot) {
   });
 
   robot.respond(/I can/, function(res) {
-    if (canIntervalId) {
+    if (canIntervalId !== null) {
       res.send("Yay! Course you can!");
       clearInterval(canIntervalId);
       return canIntervalId = null;
