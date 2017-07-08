@@ -41,26 +41,50 @@ module.exports = function(robot) {
     }, 6 * 1000);
   });
 
-  canId = null;
+  canIntervalId = null;
 
   robot.respond(/I can't/, function(res) {
-    if (canId) {
+    if (canIntervalId) {
       res.send("Believe in yourself!");
       return;
     }
     res.send("You don't really think that?");
-    return canId = setInterval(function() {
+    return canIntervalId = setInterval(function() {
       return res.send("Believe in yourself");
     }, 1000);
   });
 
   robot.respond(/I can/, function(res) {
-    if (canId) {
+    if (canIntervalId) {
       res.send("Yay! Course you can!");
-      clearInterval(canId);
-      return canId = null;
+      clearInterval(canIntervalId);
+      return canIntervalId = null;
     } else {
       return res.send("Isn't that what I told you??");
     }
   });
+
+  annoyIntervalId = null;
+
+  robot.respond(/annoy me/, function(res) {
+    if (annoyIntervalId) {
+      res.send("AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH");
+      return;
+    }
+    res.send("Hey, want to hear the most annoying sound in the world?");
+    return annoyIntervalId = setInterval(function() {
+      return res.send("AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH");
+    }, 1000);
+  });
+
+  robot.respond(/unannoy me/, function(res) {
+    if (annoyIntervalId) {
+      res.send("GUYS, GUYS, GUYS!");
+      clearInterval(annoyIntervalId);
+      return annoyIntervalId = null;
+    } else {
+      return res.send("Not annoying you right now, am I?");
+    }
+  });
+
 };
