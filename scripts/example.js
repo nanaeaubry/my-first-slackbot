@@ -52,6 +52,7 @@ module.exports = function(robot) {
     return canIntervalId = setInterval(function() {
       return res.send("Believe in yourself");
     }, 1000);
+    canIntervalId = 1;
   });
 
   robot.respond(/I can/, function(res) {
