@@ -10,7 +10,7 @@ module.exports = function(robot) {
   });
 
   robot.hear(/Hello/i, function(res) {
-    return res.send('Hey grl Hey!');
+    return res.send('Hey girl Hey!');
   });
 
   robot.hear(/sad/i, function(res) {
@@ -43,7 +43,7 @@ module.exports = function(robot) {
 
   canIntervalId = null;
 
-  robot.respond(/I can't/, function(res) {
+  robot.respond(/I cant/, function(res) {
     if (canIntervalId) {
       res.send("Believe in yourself!");
       return;
