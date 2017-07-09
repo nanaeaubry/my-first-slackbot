@@ -76,13 +76,13 @@ module.exports = function(robot) {
       return res.send("Isn't that what I told you??");
     }
   });
-  //class = ['carenbraj', 'dafabulousteach', 'jason', 'mennake', 'acervantes', 'braj'];
-  robot.respond(/(.*), thank you so much!/i, function(res) {
+  //class = ['carenbraj', 'dafabulousteach', 'jason', 'mennake', 'acervantes', 'nanaeaubry'];
+  robot.respond(/(.*) thank you so much!/i, function(res) {
     var name;
     name = res.match[1];
     if (name === "Rubot") {
       return res.send("You're very much welcome!");
-    } else if (name === "carenbraj" || name === dafabulousteach || name === jason || name === mennake || name === acervantes || name === braj) {
+    } else if (name === "carenbraj" || name === "dafabulousteach" || name === "jason" || name === "mennake" || name === "acervantes" || name === "nanaeaubry") {
       return res.send("Isn't " + name + " the nicest!");
     }
   });
