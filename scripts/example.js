@@ -77,13 +77,13 @@ module.exports = function(robot) {
     }
   });
 
-  robot.respond(/Hi! My name is (.*)/i, function(res) {
+  robot.respond(/(.*), thank you so much!/i, function(res) {
     var name;
     name = res.match[1];
     if (name === "Rubot") {
-      return res.send("Say what? No way, that's me!");
+      return res.send("You're very much welcome!");
     } else {
-      return res.send("Pleasure to meet you " + name + "!");
+      return res.send("Isn't " + name + " the nicest!");
     }
   });
 
