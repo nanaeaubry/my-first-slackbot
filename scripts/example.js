@@ -28,21 +28,6 @@ module.exports = function(robot) {
     return res.send(res.message.text + "? Where are we going with this?");
   });
 
-
-  // Taken from example_scripts.js in class repo and added words of my own.
-  // When users enter or leave a chat room then bot will say something in
-  // general to group from array of choices.
-  enterReplies = ['Hi', 'Target Acquired', 'Hello friend.', 'I see you'];
-  leaveReplies = ['Are you still there?', 'Bye Felicia', 'Wait what'];
-
-  robot.enter(function(res) {
-    return res.send(res.random(enterReplies)); // Takes random reply from array
-  });
-
-  robot.leave(function(res) {
-    return res.send(res.random(leaveReplies)); // Takes random reply from array
-  });
-
   // Create an interval Id for conditional statement
   canIntervalId = null;
 
@@ -76,19 +61,24 @@ module.exports = function(robot) {
       return res.send("Isn't that what I told you??");
     }
   });
-  //Gak nanaeaubry @joe b@b
-  robot.respond(/gak (.*)/i, function(res) {
+
+  // When user inputs username(s) robot will execute following code
+  robot.respond(/slay (.*)/i, function(res) {
     var users = res.match[1].split(' ');
     res.send('users: ' + users.length);
     for (var i = 0; i < users.length; i++) {
       res.send('user: ' + users[i]);
+      // check if valid username entered
       if (users[i].indexOf('@') !== 0) {
         continue;
       }
-      robot.messageRoom(users[i], 'Quack! Quack! You have been gaked by ' + res.envelope.user.name);
+      // send private message to users 'targeted'
+      robot.messageRoom(users[i], 'You just got slayed by ' + res.envelope.user.name);
     }
-    return res.send('Gak accomplished!');
+    // send message to current board or room
+    return res.send('Slay accomplished!');
   });
+
   //wikipedia subject
   robot.respond(/wikipedia (.*)/i, function(res) {
     var subjects = res.match[1].split(' ');
