@@ -79,7 +79,8 @@ module.exports = function(robot) {
   //class = ['carenbraj', 'dafabulousteach', 'jason', 'mennake', 'acervantes', 'nanaeaubry'];
   robot.respond(/Gak @?([\w .\-]+)\?*$/i, function(res) {
     robot.messageRoom('nanaeplayground', 'Gak command: ' + res.match[1]);
-    return res.send('Goink goink!');
+    robot.messageRoom(res.match[1], 'Quack quack!')
+    return res.send('Sent a nice Gak to ' + res.match[1]);
   });
 
 };
