@@ -63,7 +63,7 @@ module.exports = function(robot) {
   });
 
   // Ends repetition in conditional with same intervalId
-  robot.respond(/I will/, function(res) {
+  robot.respond(/nanae will/, function(res) {
     // if the intervalId is not null then the following response should be given
     if (canIntervalId !== null) {
       res.send("Yay! Course you can!");
@@ -77,14 +77,15 @@ module.exports = function(robot) {
     }
   });
   //class = ['carenbraj', 'dafabulousteach', 'jason', 'mennake', 'acervantes', 'nanaeaubry'];
-  robot.respond(/(.*) thank you so much!/i, function(res) {
-    var name;
-    name = res.match[1];
-    if (name === "Rubot") {
-      return res.send("You're very much welcome!");
-    } else if (name === "@carenbraj" || name === "@dafabulousteach" || name === "@jason" || name === "@mennake" || name === "@acervantes" || name === "@nanaeaubry") {
-      return res.send("Isn't " + name + " the nicest!");
-    }
+  robot.respond(/Gak/i, function(res) {
+    res.send()
+    // var name;
+    // name = msg.match[1];
+    // if (name === "Rubot") {
+    //   return msg.send("You're very much welcome!");
+    // } else if (name === "@carenbraj" || name === "@dafabulousteach" || name === "@jason" || name === "@mennake" || name === "@acervantes" || name === "@nanaeaubry") {
+    //   return msg.send("Isn't " + name + " the nicest!");
+    // }
   });
 
 };
