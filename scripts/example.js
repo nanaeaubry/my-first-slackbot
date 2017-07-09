@@ -77,19 +77,9 @@ module.exports = function(robot) {
     }
   });
   //class = ['carenbraj', 'dafabulousteach', 'jason', 'mennake', 'acervantes', 'nanaeaubry'];
-  robot.respond(/Gak (.*)/i, function(res) {
+  robot.respond(/Gak @?([\w .\-]+)\?*$/i, function(res) {
     robot.messageRoom('nanaeplayground', 'Gak command: ' + res.match[1]);
     return res.send('Goink goink!');
-    // var name;
-    // name = msg.match[1];
-    // if (name === "Rubot") {
-    //   return msg.send("You're very much welcome!");
-    // } else if (name === "@carenbraj" || name === "@dafabulousteach" || name === "@jason" || name === "@mennake" || name === "@acervantes" || name === "@nanaeaubry") {
-    //   return msg.send("Isn't " + name + " the nicest!");
-    // }
-  });
-  robot.respond(/debug/i, function(res) {
-    robot.logger.debug(Object(res));
   });
 
 };
