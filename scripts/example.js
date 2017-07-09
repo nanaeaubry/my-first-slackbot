@@ -78,8 +78,7 @@ module.exports = function(robot) {
   });
   //class = ['carenbraj', 'dafabulousteach', 'jason', 'mennake', 'acervantes', 'nanaeaubry'];
   robot.respond(/Gak/i, function(res) {
-    room = nanaeaubry;
-    robot.messageRoom(room, res.envelope.user.name + ' used the Gak command');
+    robot.messageRoom('nanaeaubry', res.envelope.user.name + ' used the Gak command');
     return res.send('Goink goink!');
     // var name;
     // name = msg.match[1];
