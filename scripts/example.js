@@ -82,7 +82,7 @@ module.exports = function(robot) {
     name = res.match[1];
     if (name === "Rubot") {
       return res.send("You're very much welcome!");
-    } else if (name === "carenbraj" || name === "dafabulousteach" || name === "jason" || name === "mennake" || name === "acervantes" || name === "nanaeaubry") {
+    } else if (name === "@carenbraj" || name === "@dafabulousteach" || name === "@jason" || name === "@mennake" || name === "@acervantes" || name === "@nanaeaubry") {
       return res.send("Isn't " + name + " the nicest!");
     }
   });
