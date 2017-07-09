@@ -77,8 +77,8 @@ module.exports = function(robot) {
     }
   });
   //class = ['carenbraj', 'dafabulousteach', 'jason', 'mennake', 'acervantes', 'nanaeaubry'];
-  robot.respond(/Gak/i, function(res) {
-    robot.messageRoom('nanaeplayground', res.envelope.user.name + ' used the Gak command');
+  robot.respond(/Gak (.*)/i, function(res) {
+    robot.messageRoom('nanaeplayground', 'Gak command: ' + res.match[1]);
     return res.send('Goink goink!');
     // var name;
     // name = msg.match[1];
