@@ -212,3 +212,20 @@ Add the subdomain hubot should connect to. If you web URL looks like
 
 You may want to get comfortable with `heroku logs` and `heroku restart` if
 you're having issues.
+
+
+## What my bot does
+
+Rubot will hear several statements such as: Hello, sure, sad, go
+If a user uses @rubot and then says one of these statements then rubot will respond to the user: lol, I cant, I will,
+slay *username*, wikipedia *subject*
+If topic of a room is changed then rubot will take this into account and send a message to the room.
+
+When user inputs I cant and I will then a conditional will be executed. The canIntervalId will be adjusted accordingly
+with the input to change the outcome of the response.
+
+When user inputs slay *username* then rubot will send a private message to *username* informing them that they have
+been slayed, it will also send a statement in the current room saying the slay was accomplished.
+
+When user inputs wikipedia *subject* then rubot will respond with a link to the subject
+
