@@ -63,7 +63,7 @@ module.exports = function(robot) {
   });
 
   // Ends repetition in conditional with same intervalId
-  robot.respond(/nanae will/, function(res) {
+  robot.respond(/I will/, function(res) {
     // if the intervalId is not null then the following response should be given
     if (canIntervalId !== null) {
       res.send("Yay! Course you can!");
@@ -78,7 +78,7 @@ module.exports = function(robot) {
   });
   //class = ['carenbraj', 'dafabulousteach', 'jason', 'mennake', 'acervantes', 'nanaeaubry'];
   robot.respond(/Gak/i, function(res) {
-    res.send()
+    res.send('blah blah blah ' + res.envelope.user.name);
     // var name;
     // name = msg.match[1];
     // if (name === "Rubot") {
