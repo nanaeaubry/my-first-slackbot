@@ -89,5 +89,11 @@ module.exports = function(robot) {
     }
     return res.send('Gak accomplished!');
   });
+  //wikipedia subject
+  robot.respond(/wikipedia (.*)/i, function(res) {
+    var subjects = res.match[1].split(' ');
+    // Only use the first one
+    return res.send('https://en.wikipedia.org/wiki/' + subjects[0]);
+  });
 
 };
