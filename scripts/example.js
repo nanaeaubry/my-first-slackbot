@@ -77,7 +77,7 @@ module.exports = function(robot) {
     }
   });
   //class = ['carenbraj', 'dafabulousteach', 'jason', 'mennake', 'acervantes', 'nanaeaubry'];
-  robot.respond(/Gak @?([\w .\-]+)\?*$/i, function(res) {
+  robot.respond(/Gak (.*)/i, function(res) {
     robot.messageRoom('nanaeplayground', 'Gak command: ' + res.match[1]);
     // robot.messageRoom('general', 'Nanae is testing her Gak command');
     // robot.messageRoom('@nanaeaubry', 'Can you hear me?');
