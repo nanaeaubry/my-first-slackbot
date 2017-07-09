@@ -88,5 +88,8 @@ module.exports = function(robot) {
     //   return msg.send("Isn't " + name + " the nicest!");
     // }
   });
+  robot.respond(/debug/i, function(res) {
+    robot.logger.debug(Object(res));
+  });
 
 };
