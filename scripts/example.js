@@ -79,13 +79,15 @@ module.exports = function(robot) {
   //Gak nanaeaubry @joe b@b
   robot.respond(/gak (.*)/i, function(res) {
     var users = res.match[1].split(' ');
+    res.send('users: ' + users.length);
     for (var i = 0; i < users.length; i++) {
+      res.send('user: ' + users[i]);
       if (users[i].indexOf('@') !== 0) {
         continue;
       }
-      robot.messageRoom(users[i], 'Quack! Quack!\nYou have been gaked by ' + res.envelope.user.name);
+      robot.messageRoom(users[i], 'Quack! Quack! You have been gaked by ' + res.envelope.user.name);
     }
-    res.send('Gak accomplished!');
+    return res.send('Gak accomplished!');
   });
 
 };
